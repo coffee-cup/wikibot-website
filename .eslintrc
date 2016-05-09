@@ -24,6 +24,8 @@
     "globalReturn": false,
     "jsx": true
   },
+  "globals": [
+  ],
   "env": {
     "browser": true,
     "node": true
@@ -202,7 +204,7 @@
 
     /* Legacy */
     "max-depth": [0, 3],
-    "max-len": [1, 121, 2],
+    "max-len": [1, 240, 2],
     "max-params": 0,
     "max-statements": 0,
     "no-bitwise": 1,

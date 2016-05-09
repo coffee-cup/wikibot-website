@@ -22,6 +22,9 @@ let config = {
             exclude: /node_modules/
         }],
         loaders: [{
+            test: /\.json$/,
+            loader: 'json'
+        }, {
             test: /\.jsx$/,
             exclude: /node_modules/,
             loader: "babel-loader"
