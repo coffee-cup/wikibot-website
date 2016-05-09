@@ -1,0 +1,36 @@
+$colour1          : #51e5ff; //rgba(81, 229, 255, 100)
+$colour2          : #440381; //rgba(68, 3, 129, 100)
+$colour3          : #ec368d; //rgba(236, 54, 141, 100)
+$colour4          : #724cf9; //rgba(114, 76, 249, 100)
+$colour5          : #DEDEDE;
+
+$main-colour      : $colour4;
+$secondary-colour : $colour2;
+$accent-colour    : $colour3;
+$text-dark        : #383838;
+$text-light       : white;
+
+$success-colour   : #83CC61;
+$error-colour     : #DE4242;
+
+$xsmall: 568px;
+$small: 768px;
+$medium: 1024px;
+$large: 1280px;
+$xlarge: 1600px;
+
+$row-width: 1200px;
+
+$row-wide         : 60%;
+$row-normal       : 80%;
+$row-tablet       : 90%;
+$row-mobile       : 94%;
+
+$sans             : "Muli", Tahoma, Verdana, Arial, sans-serif;
+$serif            : "PlayfairDisplay", serif;
+$mono             : "Courier New", monospace;
+
+$bradius          : 4px;
+
+$header-height    : 3rem;
+$footer-height    : 4rem;

@@ -1,0 +1,93 @@
+@import 'normalize';
+@import 'sass-css3-mixins';
+// @import 'susy';
+@import 'animated';
+@import 'variables';
+// @import 'fonts';
+// @import 'grid';
+@import 'gridlex';
+@import 'utils';
+@import 'masonary';
+
+/* Makes border-box properties */
+// @include border-box-sizing;
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $sans;
+  color: $text-dark;
+  overflow-x: hidden;
+}
+
+h1, h2 {
+  @extend .light;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+a, a:visited {
+  text-decoration: none;
+  color: $main-colour;
+}
+
+a:hover {
+  text-decoration: none;
+  color: $accent-colour;
+}
+
+a.under {
+  text-decoration: under;
+}
+
+a.none, a.none:hover {
+  text-decoration: none;
+  color: $text-dark;
+}
+
+.full {
+  min-height: 100vh;
+}
+
+.page {
+  width: 100%;
+  margin: 0;
+}
+
+header {
+  .avatar {
+    max-width: 100%;
+    width: 10rem;
+    border-radius: 2px;
+    margin-top: 2rem;
+
+    @media (min-width: $xsmall) {
+      margin-top: -4rem;
+      margin-right: 4rem;
+      display: inline-block;
+    }
+  }
+
+  h1 {
+    @media (min-width: $xsmall) {
+      display: inline-block;
+    }
+
+    @media (max-width: $xsmall) {
+      margin-top: 1rem;
+    }
+  }
+}
+
+.footer {
+  color: $accent-colour;
+  height: $footer-height;
+
+  position: relative;
+}
