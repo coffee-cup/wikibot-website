@@ -14,7 +14,7 @@ class App extends Component {
                 <div className="main">
                 <Header />
                 <div className="grid-centered">
-                    <h2>
+                    <h2 className="tcenter desc pt0 mt0">
                         {description}
                     </h2>
                 </div>
