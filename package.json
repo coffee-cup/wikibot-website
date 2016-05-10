@@ -8,11 +8,13 @@
     "build": "NODE_ENV=production webpack -p",
     "postbuild": "npm run copy",
     "copy": "cp -r public/* build",
-    "clean": "rm -rf build"
+    "clean": "rm -rf build",
+    "server": "node server/index.js"
   },
   "author": "Tyler McGinnis <tylermcginnis33@gmail.com> (http://tylermcginnis.com)",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.13.4",
     "react": "^0.14.8",
     "react-dom": "^0.14.8",
     "react-router": "^2.0.0",
