@@ -57,14 +57,12 @@ class Fakts extends Component {
         this.setState({
             loading: true,
         });
-        setTimeout(() => {
-            requestFakt((fact) => {
-                this.setState({
-                    fact,
-                    loading: false,
-                });
+        requestFakt((fact) => {
+            this.setState({
+                fact,
+                loading: false,
             });
-        }, 1000);
+        });
     }
 
     render() {
