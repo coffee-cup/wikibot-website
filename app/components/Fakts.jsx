@@ -17,7 +17,6 @@ function requestFakt(callback) {
         type: 'GET',
         crossDomain: localhost,
         success(json) {
-            console.log(json);
             if (json.status === 'success') {
                 callback(json.fact);
             } else {
