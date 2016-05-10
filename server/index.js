@@ -1,17 +1,20 @@
 var express = require('express');
+var cors = require('cors');
 var WikiFakt = require('wikifakt');
 
-var app = express();
-
 var PORT = 9090;
+var app = express();
+var corsOption = {
+    origin: 'http://localhost:8080'
+};
 
-app.get('/fakt', function(req, res) {
+app.get('/fakt', cors(corsOption), function(req, res) {
     WikiFakt.getRandomFact().then(function(fact) {
-        var response = {
+        console.log('returning fact');
+        res.json({
             status: 'success',
             fact: fact
-        };
-        res.json(response);
+        });
     }).catch(function(err) {
         res.json(500, {
             status: 'failure',
@@ -20,8 +23,9 @@ app.get('/fakt', function(req, res) {
     });
 });
 
-app.get('/title', function(req, res) {
+app.get('/title', cors(corsOption), function(req, res) {
     WikiFakt.getRandomArticleTitle().then(function(title) {
+        console.log('returning title');
         res.json({
             status: 'success',
             title: title

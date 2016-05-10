@@ -14,11 +14,13 @@
   "author": "Tyler McGinnis <tylermcginnis33@gmail.com> (http://tylermcginnis.com)",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.7.1",
     "express": "^4.13.4",
     "react": "^0.14.8",
     "react-dom": "^0.14.8",
     "react-router": "^2.0.0",
-    "wikifakt": "^1.0.2"
+    "wikifakt": "^1.0.2",
+    "zeptojs": "^1.1.4"
   },
   "devDependencies": {
     "babel-core": "^6.7.6",

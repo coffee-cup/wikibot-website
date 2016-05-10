@@ -1,58 +1,100 @@
 import React, { Component } from 'react';
+import $ from 'zeptojs';
 
 let didYou = 'Did you know...';
+
+function requestFakt(callback) {
+    const href = window.location.href.split(':');
+    let url = href[0] + ':' + href[1];
+    let localhost = false;
+    if (url.indexOf('localhost') !== -1) {
+        url += ':9090';
+        localhost = true;
+    }
+    url += '/fakt';
+    $.ajax({
+        url,
+        type: 'GET',
+        crossDomain: localhost,
+        success(json) {
+            console.log(json);
+            if (json.status === 'success') {
+                callback(json.fact);
+            } else {
+                callback('Error ☹️');
+            }
+        },
+        error(xhr, status) {
+            console.log('error fetching fact: ' + status);
+        },
+    });
+};
+
+class Spinner extends Component {
+    render() {
+        return(
+            <div className="spinner">
+                <div className="double-bounce1"></div>
+                <div className="double-bounce2"></div>
+            </div>
+        );
+    }
+}
 
 class Fakts extends Component {
     constructor() {
         super();
         this.state = {
             fact: '',
+            loading: true,
         };
     }
 
     componentDidMount() {
-        this.setState({
-            fact: 'fuck',
-        });
+        this.newFact();
     }
 
     newFact() {
         this.setState({
-            fact: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+            loading: true,
         });
-        // WikiFakt.getRandomFact().then((fact) => {
-        //     this.setState({
-        //         fact,
-        //     });
-        // });
+        setTimeout(() => {
+            requestFakt((fact) => {
+                this.setState({
+                    fact,
+                    loading: false,
+                });
+            });
+        }, 1000);
     }
 
     render() {
         return (
-            <div className="fakts grid">
-                <div className="col-12">
-                    <div className="grid-centered">
-                        <h2 ref="didYou" className="did-you-know col-6_sm-8_xs-10">
-                            {didYou}
-                        </h2>
-                    </div>
+        <div className="fakts grid">
+            <div className="col-12">
+                <div className="grid-centered">
+                    <h2 ref="didYou" className="did-you-know col-6_sm-8_xs-10">
+                    {didYou}
+                    </h2>
                 </div>
-                <div className="col-12">
-                    <div className="grid-centered">
-                        <p className="fact col-6_sm-8_xs-10">
-                            {this.state.fact}
-                        </p>
-                    </div>
+            </div>
+            <div className="col-12">
+                <div className="grid-centered">
+                    {(this.state.loading
+                        ? <Spinner />
+                        : <p className="fact pb0 mb0 animated fadeIn col-6_sm-8_xs-10">{this.state.fact}</p>
+                    )}
                 </div>
-                <div className="col-12">
-                    <div className="grid-centered">
-                        <div className="col-4">
-                            <a onClick={this.newFact.bind(this)} className="new-fact button none">New Fact!</a>
-                        </div>
+            </div>
+            <div className="col-12">
+                <div className="grid-centered">
+                    <div className="col-4_xs-8">
+                        <a onClick={this.newFact.bind(this)} className="new-fact button none">New Fact!</a>
                     </div>
                 </div>
             </div>
-        );
+        </div>
+            );
     }
 }
 
