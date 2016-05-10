@@ -81,7 +81,7 @@ class Fakts extends Component {
                 <div className="grid-centered">
                     {(this.state.loading
                         ? <Spinner />
-                        : <p className="fact pb0 mb0 animated fadeIn col-6_sm-8_xs-10">{this.state.fact}</p>
+                        : <p className="fact pt0 mt0 pb0 mb0 animated fadeIn col-6_sm-8_xs-10">{this.state.fact}</p>
                     )}
                 </div>
             </div>
