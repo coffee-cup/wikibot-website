@@ -45,6 +45,10 @@
 
 h1.large {
   font-size: 6em;
+
+  @media (min-size: $small) {
+    font-size: 4rem;
+  }
 }
 
 // WHITE SPACE
