@@ -2,6 +2,8 @@ import WebpackNotifierPlugin from 'webpack-notifier'
 import webpack from 'webpack'
 import path from 'path'
 
+require('es6-promise').polyfill()
+
 let config = {
     entry: [
         './app/index.jsx'
