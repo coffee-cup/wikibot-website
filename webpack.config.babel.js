@@ -45,7 +45,7 @@ let config = {
     plugins: [new WebpackNotifierPlugin()]
 };
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV !== 'dev') {
     config.devServer = {}
     config.plugins = [
         new webpack.DefinePlugin({
