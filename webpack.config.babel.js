@@ -47,17 +47,18 @@ let config = {
     plugins: [new WebpackNotifierPlugin()]
 };
 
-if (process.env.NODE_ENV !== 'dev') {
-    config.devServer = {}
-    config.plugins = [
-        new webpack.DefinePlugin({
-            'process.env': {
-                'NODE_ENV': JSON.stringify('production')
-            }
-        })
-    ]
-} else {
-    config.devtool = 'source-map'
+if (process.env.NODE_ENV === 'production') {
+    config.devServer = {},
+        config.devtool = '',
+        config.plugins = [
+            new webpack.DefinePlugin({
+                'process.env': {
+                    'NODE_ENV': JSON.stringify('production')
+                }
+            }),
+            new webpack.optimize.UglifyJsPlugin()
+        ]
+} else {    config.devtool = 'source-map'
 }
 
 export default config
