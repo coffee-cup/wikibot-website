@@ -8,10 +8,10 @@ function requestFakt(callback) {
     let url = href[0] + ':' + href[1];
     let localhost = false;
     if (url.indexOf('localhost') !== -1) {
-        url += ':9090';
+        url += ':9090/';
         localhost = true;
     }
-    url += '/fakt';
+    url += 'fakt';
     $.ajax({
         url,
         type: 'GET',
