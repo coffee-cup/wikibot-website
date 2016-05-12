@@ -27,11 +27,11 @@ function requestFakt(callback) {
             console.log('error fetching fact: ' + status);
         },
     });
-};
+}
 
 class Spinner extends Component {
     render() {
-        return(
+        return (
             <div className="spinner">
                 <div className="double-bounce1"></div>
                 <div className="double-bounce2"></div>
