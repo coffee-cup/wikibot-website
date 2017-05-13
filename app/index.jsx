@@ -14,8 +14,9 @@ function logPageView() {
     ga.pageview(window.location.pathname);
 }
 
-render((
+render(
     <Router history={browserHistory} onUpdate={logPageView}>
         <Route path="/" component={App} />
-    </Router>
-), document.getElementById('app'));
+    </Router>,
+    document.getElementById('app')
+);

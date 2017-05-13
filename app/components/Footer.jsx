@@ -12,7 +12,9 @@ class Footer extends Component {
                         {'Hosted on '}
                         <a href="https://beepboophq.com/">{'BeepBoop'}</a>
                         <br />
-                        Made with &hearts; by <a href='https://jakerunzer.xyz'>jakerunzer</a>
+                        Made with ♥ by
+                        {' '}
+                        <a href="https://jakerunzer.xyz">jakerunzer</a>
                     </p>
                 </div>
             </footer>

@@ -25,7 +25,7 @@ function requestFakt(callback) {
         },
         error(xhr, status) {
             console.log('error fetching fact: ' + status);
-        },
+        }
     });
 }
 
@@ -33,8 +33,8 @@ class Spinner extends Component {
     render() {
         return (
             <div className="spinner">
-                <div className="double-bounce1"></div>
-                <div className="double-bounce2"></div>
+                <div className="double-bounce1" />
+                <div className="double-bounce2" />
             </div>
         );
     }
@@ -45,7 +45,7 @@ class Fakts extends Component {
         super();
         this.state = {
             fact: '',
-            loading: true,
+            loading: true
         };
     }
 
@@ -55,43 +55,52 @@ class Fakts extends Component {
 
     newFact() {
         this.setState({
-            loading: true,
+            loading: true
         });
-        requestFakt((fact) => {
+        requestFakt(fact => {
             this.setState({
                 fact,
-                loading: false,
+                loading: false
             });
         });
     }
 
     render() {
         return (
-        <div className="fakts grid">
-            <div className="col-12">
-                <div className="grid-centered">
-                    <h2 ref="didYou" className="did-you-know col-6_sm-8_xs-10">
-                    {didYou}
-                    </h2>
+            <div className="fakts grid">
+                <div className="col-12">
+                    <div className="grid-centered">
+                        <h2
+                            ref="didYou"
+                            className="did-you-know col-6_sm-8_xs-10"
+                        >
+                            {didYou}
+                        </h2>
+                    </div>
                 </div>
-            </div>
-            <div className="col-12">
-                <div className="grid-centered">
-                    {(this.state.loading
-                        ? <Spinner />
-                        : <p className="fact pt0 mt0 pb0 mb0 animated fadeIn col-6_sm-8_xs-10">{this.state.fact}</p>
-                    )}
+                <div className="col-12">
+                    <div className="grid-centered">
+                        {this.state.loading
+                            ? <Spinner />
+                            : <p className="fact pt0 mt0 pb0 mb0 animated fadeIn col-6_sm-8_xs-10">
+                                  {this.state.fact}
+                              </p>}
+                    </div>
                 </div>
-            </div>
-            <div className="col-12">
-                <div className="grid-centered">
-                    <div className="col-4_xs-8">
-                        <a onClick={this.newFact.bind(this)} className="new-fact button none">New Fact!</a>
+                <div className="col-12">
+                    <div className="grid-centered">
+                        <div className="col-4_xs-8">
+                            <a
+                                onClick={this.newFact.bind(this)}
+                                className="new-fact button none"
+                            >
+                                New Fact!
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-            );
+        );
     }
 }
 

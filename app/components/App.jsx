@@ -12,14 +12,14 @@ class App extends Component {
         return (
             <div className="app">
                 <div className="main">
-                <Header />
-                <div className="grid-centered">
-                    <h2 className="tcenter desc pt0 mt0">
-                        {description}
-                    </h2>
-                </div>
-                <SlackButton />
-                <Fakts />
+                    <Header />
+                    <div className="grid-centered">
+                        <h2 className="tcenter desc pt0 mt0">
+                            {description}
+                        </h2>
+                    </div>
+                    <SlackButton />
+                    <Fakts />
                 </div>
                 <Footer />
             </div>
@@ -28,4 +28,3 @@ class App extends Component {
 }
 
 export default App;
-
